@@ -1,0 +1,41 @@
+<!DOCTYPE html> 
+<html xmlns:th="http://www.thymeleaf.org">
+	
+<head>
+	<meta charset="UTF-8">
+	<title>TODOアプリ</title>
+	<style>
+	.btn-green {
+	    background-color: #28a745;
+	    color: white;
+	    border: none;
+	    padding: 10px 20px;
+	    border-radius: 5px;
+	}
+
+	.btn-blue {
+	    background-color: #007bff;
+	    color: white;
+	    border: none;
+	    padding: 10px 20px;
+	    border-radius: 5px;
+	}
+	</style>
+</head>
+
+
+<!--bodyは全体を中央に　divはボタンだけ横並びにする-->
+
+<body style="
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+">
+    <h1>TODOアプリ　TOP</h1>
+	<div style="display: flex; gap: 10px;">
+		<button class="btn-green" onclick="location.href='/register'">ユーザー登録</button>
+		   <button class="btn-blue" onclick="location.href='/login'">ログイン</button>
+	   </div>
+</body>

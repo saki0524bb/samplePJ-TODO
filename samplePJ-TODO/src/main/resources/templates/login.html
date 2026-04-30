@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ユーザ登録</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            background-color: #f5f5f5;
+            font-family: sans-serif;
+            padding-top: 70px;
+        }
+
+        .card {
+            background-color: white;
+            width: 320px;
+            padding: 30px 25px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 25px;
+            font-size: 22px;
+        }
+
+        .form-group {
+            margin-bottom: 14px;
+        }
+
+        label {
+            display: block;
+            font-size: 12px;
+            margin-bottom: 6px;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            height: 34px;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+
+        .register-btn {
+            width: 100%;
+            height: 36px;
+            background-color: #1f8f4e;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            margin-top: 6px;
+        }
+
+        .login-link {
+            text-align: center;
+            margin-top: 14px;
+            font-size: 12px;
+        }
+
+        .login-link a {
+            color: #2d7df6;
+            text-decoration: none;
+        }
+
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>ログイン</h1>
+		
+		<p th:if="${message}" th:text="${message}" style="color: green;"></p>
+
+       <form th:action="@{/login}" method="post">
+            <div class="form-group">
+                <label for="userName">ユーザ名</label>
+                <input type="text" id="userName" name="userName">
+            </div>
+
+            <div class="form-group">
+                <label for="password">パスワード</label>
+                <input type="password" id="password" name="password">
+            </div>
+
+            <input type="submit" value="ログイン" class="register-btn">
+			<p th:if="${error}" th:text="${error}" style="color:red;"></p>
+        </form>
+
+
+    </div>
+</body>
+</html>

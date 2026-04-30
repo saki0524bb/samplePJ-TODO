@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<meta charset="UTF-8">
+	<title>タスク編集</title>
+
+<style>
+	body {
+		/*<!--ブラウザが最初から持ってる余白を消している-->*/
+		margin: 0;
+		/*		<!--文字の種類、ゴシックとか-->*/
+		font-family: "Yu Gothic", "Meiryo", sans-serif;
+		/*	<!--画面全体の背景色-->*/
+		background-color: white;
+	}
+	
+	
+/*	<!--表全体-->*/
+        table {
+					/*<!--containerの横幅いっぱい-->*/
+		            width: 100%;
+				/*	<!--表の線をくっつける-->*/
+		            border-collapse: collapse;
+					/*<!--表全体の背景を白にする-->*/
+		            background-color: white;
+					/*<!--表の中の文字サイズ-->*/
+		            font-size: 14px;
+		        }
+				
+				.container {
+				    width: 80%;
+				    margin: 50px auto;
+				    background: white;
+				    padding: 20px;
+				    border-radius: 8px;
+				}
+				
+				
+
+	form {
+		width: 400px;
+		margin: 50px auto;
+	}
+
+	.form-group {
+		/*下の余白*/
+		margin-bottom: 15px;
+	}
+
+	form-group label {
+		width: 100px;
+		font-weight: bold;
+	}
+
+	.form-group input,
+	.form-group textarea {
+	    width: 100%;
+	    padding: 8px;
+	    border: 1px solid #ccc;
+	    border-radius: 4px;
+	    box-sizing: border-box;
+		resize: none;
+	}
+	
+	.button-area {
+	    display: flex;
+	    gap: 10px;
+		}
+		
+	.btn-update{
+		color:white;
+		background-color: blue;
+		/*丸くする、角をとる*/
+		border-radius: 8px ;
+		padding: 8px 16px;
+		cursor: pointer;
+		text-decoration: none;
+	}
+	
+	.btn-delete{
+			color:white;
+			background-color:gray;
+			border-radius: 8px;
+			padding: 8px 16px;
+			cursor: pointer;
+			text-decoration: none;
+		}
+	
+</style>
+
+<body>
+	<div class = "container">
+<h1>タスク編集</h1>
+<form th:action="@{/tasks/edit}" method="post">
+	<input type="hidden" name="id" th:value="${task.id}">
+	<div class="form-group">
+		
+	<label>タイトル</label><br>
+	<input type="text" name="title" th:value="${task.title}">
+</div><br>
+<div class="form-group">
+	<label>内容</label><br>
+	<!--　↓これは複数行入力可能（inputは１行だけ入力-->
+	   <textarea name="content" rows="2" th:text="${task.content}"></textarea>
+</div><br>
+<div class="form-group">
+	<label>登録者</label><br>
+	<input type="text" name="name" th:value="${task.name}">
+</div><br>
+<div class="form-group">
+	<label>開始日</label><br>
+	<input type="date" name="startDate" th:value="${task.startDate}">
+</div><br>
+<div class="form-group">
+	<label>終了日</label><br>
+	<input type="date" name="endDate" th:value="${task.endDate}">
+</div>
+<div class="button-area">
+	<!-- formをcontrollerに送るやつsubmit-->
+    <button type="submit" class="btn-update">完了</button><br>
+	 <a th:href="@{/tasks}" class="btn-delete">←キャンセル</a>
+		</div>
+</div>
+</form>
+</body>

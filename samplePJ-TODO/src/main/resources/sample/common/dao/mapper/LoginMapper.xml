@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--LoginMapper.java の完全パス-->
+<mapper namespace="sample.common.dao.mapper.LoginMapper">
+<!--login.javaとつながっている-->
+    <insert id="insertUser" parameterType="sample.common.dao.entity.Login">
+    <!--ログインテーブルに名前とパスワードを登録　VALUESでJavaの値を入れている-->
+        INSERT INTO login (username, password)
+        <!--ログイン.Javaから持ってくる-->
+        VALUES (#{userName}, #{password})
+    </insert>
+
+<!--ログインmapper.Javaに記載あり-->
+    <select id="selectByUserName"
+            parameterType="string"
+            resultType="sample.common.dao.entity.Login">
+            
+            <!--Javaに名前を合わせているuserName、WHEREでは、条件にあうデータをとってきている-->
+        SELECT
+            id,
+            username AS userName,
+            password
+        FROM login
+        WHERE username = #{userName}
+    </select>
+
+</mapper>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="sample.common.dao.mapper.TaskMapper">
+ <insert id="insertTask">
+INSERT INTO tasks (username, title, content, name , start_date, end_date)
+<!--実際に入れるデータを書くところ-->
+VALUES  (#{name}, #{title}, #{content}, #{name}, CAST(#{startDate} AS DATE), CAST(#{endDate} AS DATE));
+  </insert>
+  <select id="selectAllTasks" resultType="sample.common.dao.entity.Task">
+    SELECT 
+       id, 
+       title, 
+       content, 
+       name, 
+       start_date AS startDate, 
+       end_date AS endDate, 
+       created_at AS createdAt,
+       updated_at AS updatedAt
+    FROM tasks
+</select>
+ <select id="selectTaskById" resultType="sample.common.dao.entity.Task">
+    SELECT 
+       id, 
+       title, 
+       content, 
+       name, 
+       start_date AS startDate, 
+       end_date AS endDate
+    FROM tasks
+    WHERE id = #{id}
+</select>
+
+<update id="updateTask">
+   UPDATE tasks
+    SET
+        title = #{title},
+        content = #{content},
+        name = #{name},
+        start_date = CAST(#{startDate} AS DATE),
+        end_date = CAST(#{endDate} AS DATE)
+    WHERE id = #{id}
+</update>
+
+<delete id="deleteTask" parameterType="int">
+    DELETE FROM tasks WHERE id = #{id}
+</delete>
+
+<select id="findTasksByPage" resultType="sample.common.dao.entity.Task">
+    SELECT
+        id,
+        title,
+        content,
+        name,
+        start_date AS startDate,
+        end_date AS endDate,
+        created_at AS createdAt,
+        updated_at AS updatedAt
+    FROM tasks
+    ORDER BY id
+    LIMIT #{limit}
+    OFFSET #{offset}
+</select>
+
+<select id="countTasks" resultType="int">
+    SELECT COUNT(*) FROM tasks
+</select>
+
+</mapper>
+
+<!-- <insert id="insertTask">は、mapperに書いてるのと統一させる-->
+<!--データベースのテーブル名とINSERT INTO (テーブル名)は一致させないといけない-->
+<!--CASTは型を変換するための命令-->
