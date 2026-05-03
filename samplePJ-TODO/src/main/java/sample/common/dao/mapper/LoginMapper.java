@@ -8,9 +8,9 @@ import sample.common.dao.entity.Login;
 @Mapper
 public interface LoginMapper {
 
-	//ユーザー登録をする操作
-    void insertUser(Login login);
+	// ユーザー登録をする操作
+	void insertUser(Login login);
 
-    //ユーザー名で検索する操作
-    Login selectByUserName(String userName);
+	// ユーザー名で検索する操作
+	Login selectByUserName(String userName);
 }
