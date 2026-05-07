@@ -1,0 +1,179 @@
+
+		body {
+			/*<!--ブラウザが最初から持ってる余白を消している-->*/
+			margin: 0;
+			/*		<!--文字の種類、ゴシックとか-->*/
+			font-family: "Yu Gothic", "Meiryo", sans-serif;
+			/*	<!--画面全体の背景色-->*/
+			background-color: #f5f5f5;
+		}
+
+		/*<!-画像全体をまとめる箱--->*/
+		.container {
+			/*<!--横幅を900PXに固定している-->*/
+			width: 1200px;
+			/*<!--上下の余白を50、左右はauto→これで中央寄になる（箱を真ん中に持ってきている）-->*/
+			margin: 50px auto;
+			/*	<!--中の文字を中央寄にする-->*/
+			text-align: center;
+		}
+
+		h1 {
+			/*	<!-下に余白をあける--->*/
+			margin-bottom: 30px;
+			/*<!--文字を大きくする-->*/
+			font-size: 40px;
+			/*		<!--太字にする-->*/
+			font-weight: bold;
+		}
+
+		/*		<!--表全体-->*/
+		table {
+			/*<!--containerの横幅いっぱい-->*/
+			width: 100%;
+			/*	<!--表の線をくっつける-->*/
+			border-collapse: collapse;
+			/*<!--表全体の背景を白にする-->*/
+			background-color: white;
+			/*<!--表の中の文字サイズ-->*/
+			font-size: 14px;
+		}
+
+		/*	<!--表の見出し部分-->*/
+		thead {
+			/*<!--見出しの行の背景を濃い色にする-->*/
+			background-color: #1f2937;
+			color: white;
+		}
+
+		/*<!--見出しとデータセルを両方まとめて同じ見た目にしている-->*/
+		th,
+		td {
+			/*	<!--セルの中の余白-->*/
+			padding: 12px 8px;
+			/*<!--下線をひく、solidは実線-->*/
+			border-bottom: 1px solid #ddd;
+			/*<!--セルの中の文字を中央寄-->*/
+			text-align: center;
+		}
+
+		/*	<!--bodyの中のｔｒのうち、偶数番目だけ背景の色を変える-->*/
+		tbody tr:nth-child(even) {
+			background-color: #f9f9f9;
+		}
+
+
+
+		/*<!--ボタンの共有ルール-->*/
+		.btn {
+			/*　<!--ボタンみたいな箱ができる-->*/
+			display: inline-block;
+			/*<!--ボタンの中の余白-->*/
+			padding: 6px 10px;
+			/*<!--枠線なし-->*/
+			border: none;
+			color: white;
+			/*<!--リンク飛ぶ用の下線を消しているダサいから-->*/
+			text-decoration: none;
+			font-size: 12px;
+			border-radius: 4px;
+			/*<!--マウスを乗せた時に手のマークにする-->*/
+			cursor: pointer;
+		}
+
+		.btn-edit {
+			/*	<!--編集ボタンの色-->*/
+			background-color: #3b82f6;
+		}
+
+		.btn-delete {
+			/*<!--ページ番号エリア全体-->*/
+			background-color: #ef4444;
+		}
+
+		.pagination {
+			/*<!--ページングの上に余白を作る-->*/
+			margin-top: 20px;
+		}
+
+		/*	<!--ページングの中にあるaタグだけに効く-->*/
+		.pagination a {
+			display: inline-block;
+			padding: 8px 12px;
+			margin: 0 2px;
+			border: 1px solid #ccc;
+			/*	<!--リンクの下線を消す-->*/
+			text-decoration: none;
+			color: #333;
+			background-color: white;
+			border-radius: 4px;
+			font-size: 13px;
+		}
+
+		/*	<!--今のページにだけきく-->*/
+		.pagination a.active {
+			background-color: #3b82f6;
+			color: white;
+			border-color: #3b82f6;
+		}
+
+		.bottom-area {
+			margin-top: 20px;
+			text-align: right;
+		}
+
+		.btn-create {
+			/*<!--新規作成ボタン-->*/
+			background-color: #22c55e;
+			padding: 10px 16px;
+			font-size: 14px;
+			border-radius: 4px;
+		}
+
+		a {
+			text-decoration: none;
+		}
+
+		.blue-box {
+			width: 100%;
+			background-color: lightblue;
+			/* 背景 */
+			color: rgb(0, 64, 128);
+			/* 文字色 */
+			padding: 10px 15px;
+			/* 内側の余白 */
+			border-radius: 8px;
+			/* 角丸 */
+			display: inline-block;
+			/* 横幅ちょうど */
+		}
+		
+		.header {
+		    display: flex;
+		    justify-content: flex-end; /* 右寄せ */
+		    margin-bottom: 10px;
+		}
+
+		.btn-logout {
+		    background-color: #6b7280; /* グレー */
+		    padding: 8px 12px;
+		    border-radius: 6px;
+		    color: white;
+		    text-decoration: none;
+		    font-size: 13px;
+		}
+		
+		.pagination span.page-disabled {
+		    display: inline-block;
+		    padding: 8px 12px;
+		    margin: 0 2px;
+		    border: 1px solid #ccc;
+		    color: #aaa;
+		    background-color: #eee;
+		    border-radius: 4px;
+		    font-size: 13px;
+		    cursor: not-allowed;
+		}
+		
+		
+		
